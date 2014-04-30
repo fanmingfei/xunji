@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><{$keyword}>-搜索结果</title>
+</head>
+<body>
+<p><span style="color:red;"><b><{$keyword}></b></span>在<span style='color:blue;'><b><{$classname}></b></span>分类下的搜索结果</p>
+<{if $swzlarr!='0'}>
+	<{foreach from=$swzlarr item=swzl}>
+		<{$swzl.id}>___
+		<{$swzl.name}><br>
+		<{$swzl.info}><br><br>
+	<{/foreach}>
+<{else if}>
+	内容为空
+<{/if}>
+====================================================<br>
+<{if $xwqsarr!='0'}>
+	<{foreach from=$xwqsarr item=xwqs}>
+		<{$xwqs.id}>___
+		<{$xwqs.name}><br>
+		<{$xwqs.info}><br><br>
+	<{/foreach}>
+<{else if}>
+	内容为空
+<{/if}>
+</body>
+</html>

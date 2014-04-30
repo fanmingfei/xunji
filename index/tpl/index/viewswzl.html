@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><{$name}> 失物招领详情 <{$site_name}></title>
+</head>
+<body>
+<{if $swzlarr!='0'}>
+	<{foreach from=$swzlarr item=swzl}>
+		<{$swzl.id}>____
+		<{$swzl.name}>____
+		<{$swzl.info}>____
+		<{$swzl.find_time}>____
+		<{$swzl.find_locale}>____
+		<{$swzl.time}><br>
+	<{/foreach}>
+<{else if}>
+	内容为空
+<{/if}>
+</body>
+</html>

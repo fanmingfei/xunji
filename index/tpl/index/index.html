@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><{$site_url}></title>
+<meta http-equiv="keywords" content="<{$keyword}>" >
+<meta http-equiv="description" content="<{$description}>">
+<link href="<{$tmpurl}>"/>
+</head>
+<style>
+#banner img {width:300px;height:200px;float:left;}
+</style>
+<body>
+<div id="banner">
+<{foreach from=$bannerarr item=banner}>
+<img src="<{$upurl}><{$banner.url}>" title="<{$banner.title}>">
+<{/foreach}>
+</div>
+<div id="search">
+<form name='search' method='get'>
+<input type="hidden" name='c' value='main'>
+<input type="hidden" name='a' value='s'>
+<input type='text' value='' name='keyword'>
+<select name='classid'>
+	<option value='0'>所有分类</option>
+<{foreach from=$classarr item=class}>
+	<option value="<{$class.id}>"><{$class.name}></option>
+<{/foreach}>
+</select>
+<input type='submit'>
+</form>
+</div>
+<div id="swzl">
+<p><b>失物招领</b></p>
+<{if $swzlarr!='0'}>
+	<{foreach from=$swzlarr item=swzl}>
+		<{$swzl.id}>____
+		<{$swzl.name}>____
+		<{$swzl.info}>____
+		<{$swzl.find_time}>____
+		<{$swzl.find_locale}>____
+		<{$swzl.time}><br>
+	<{/foreach}>
+<{else if}>
+	内容为空
+<{/if}>
+====================================================<br>
+
+</div>
+<div id="xwqs">
+<p><b>寻物启事</b></p>
+<{if $xwqsarr!='0'}>
+	<{foreach from=$xwqsarr item=xwqs}>
+		<{$xwqs.id}>____
+		<{$xwqs.name}>____
+		<{$xwqs.info}>____
+		<{$xwqs.find_time}>____
+		<{$xwqs.find_locale}>____
+		<{$xwqs.time}><br>
+	<{/foreach}>
+<{else if}>
+	内容为空
+<{/if}>
+</div>
+<div id="tag">
+	<{foreach from=$tagarr item=tag}>
+		<{$tag.tag_name}><br>
+	<{/foreach}>
+</div>
+</body>
+</html>

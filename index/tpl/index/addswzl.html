@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>添加失物招领 <{$site_name}></title>
+<script src='<{$tmpurl}>/js/jquery.js'  type="text/javascript"></script>
+<script src='<{$tmpurl}>/js/ajaxfileupload.js'  type="text/javascript"></script>
+</head>
+<body>
+<form action='<{spUrl c=main a=addswzlaction}>' method='post'>
+<p>分类</p>
+<select name='cid'>
+<{foreach from=$classarr item=class}>
+	<option value="<{$class.id}>"><{$class.name}></option>
+<{/foreach}>
+</select>
+物品名称<input value='' name='name' type='text'>
+捡到时间<input name='find_time' type='text'>
+捡到地点<input name='find_locale' type='text'>
+物品详情<textarea name='info'></textarea>
+<input name='pic' type='hidden'><br>
+<img src='http://gist.ldustu.com/uc_server/avatar.php?uid=4&amp;size=middle' width=300 height=400 id='pic'>
+<input type='submit' value='ok'>
+</form>
+<input type="file" name="file" id="uppic" style="display:none;">
+		
+		
+<script type="text/javascript">
+$(document).ready(function(){
+	$(document).on('click','#pic',function(){
+		$('#uppic').click();
+	});
+	$(document).on('change','[name="file"]',function(){	
+		$.ajaxFileUpload({
+		url:'<{spUrl c=main a=uploadswzlpic}>', 
+		secureuri:false,
+        fileElementId:'uppic',
+        dataType: 'text',
+        
+        success: function (data)
+        {
+          if(data=='-1'){
+        	  alert('请检查图片的格式、大小。');
+        	  return;
+          }else if(data=='-2'){
+        	  alert('内部错误，请联系网站管理员！');
+        	  return;
+          }else{
+        	$('#pic').replaceWith("<img src='<{$upurl}>"+data+"' width=400 height=300' id='pic'>");
+        	$("[name='pic']").val(data);
+          }
+        }
+	})
+	})
+  });
+</script>
+</body>
+</html>

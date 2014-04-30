@@ -1,0 +1,43 @@
+user
+	id				
+	username		用户名
+	password		密码
+	name			真实姓名
+	email			邮箱
+	qq				qq
+	school			学院
+	major			专业
+	grade			入学时间
+	class			班级
+	lostnum			寻物次数
+	foundnum		寻人次数
+	loginip			登陆ip
+	signtime		注册时间
+	logintime		最后登录时间
+	
+lost
+	id
+	uid				发布人的id
+	losttime		丢失时间
+	class			类别
+	thing			物品
+	contect			联系方式
+	content			介绍
+	pic				丢失物品照片
+	isfind			是否被找到
+	
+	
+	
+	
+found
+	id
+	uid
+	findtime
+	class
+	thing
+	contect
+	content
+	pic
+	isreturn
+	
+	
